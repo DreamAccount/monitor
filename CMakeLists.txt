@@ -1,0 +1,16 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
+PROJECT(project1)
+SET(EXECUTABLE_OUTPUT_PATH bin)
+SET(CMAKE_C_COMPILER /usr/bin/clang)
+SET(CMAKE_CXX_COMPILER /usr/bin/clang++)
+SET(CMAKE_C_COMPILE_FEATURES -g -O2)
+SET(CMAKE_BUILD_TYPE "Debug")
+INCLUDE_DIRECTORIES(/usr/include /usr/local/include include)
+LINK_DIRECTORIES(/usr/lib /usr/local/lib lib)
+SET(mainsrc src/main.c src/database.c src/config.c src/network.c)
+SET(debugsrc src/test.c src/database.c src/config.c src/network.c)
+
+LINK_LIBRARIES(m pthread ev mysqlclient cjson paho-mqtt3c)
+add_executable(debug ${debugsrc})
+add_executable(main ${mainsrc})
+
