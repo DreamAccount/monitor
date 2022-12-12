@@ -11,8 +11,8 @@
     "server_port": 1883,
     "username": "admin",
     "password": "admin",
-    "clientid": "archlinux",
-    "topic": "mqtt",
+    "clientid": "monitor",
+    "topic": "/sys/monitor",
     "QOS": 1
   }
 }

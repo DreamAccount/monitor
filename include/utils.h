@@ -10,5 +10,6 @@
 
 
 void Usage(int argc, char **argv);              //使用帮助
+void Init(void);                                //初始化
 
 #endif //PROJECT1_UTILS_H

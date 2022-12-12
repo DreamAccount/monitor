@@ -15,12 +15,12 @@ void delivered(void *context, MQTTClient_deliveryToken dt) {
 void parse_data(char *payload, int payloadlen, data_t *data) {
     //解析json字符串
     cJSON *root = cJSON_Parse(payload);
-    cJSON *timestamp = cJSON_GetObjectItem(root, "time");
-    cJSON *TemObject = cJSON_GetObjectItem(root, "temperature");
-    cJSON *HumObject = cJSON_GetObjectItem(root, "humidity");
-    cJSON *LightObject = cJSON_GetObjectItem(root,"light");
-    cJSON *Soilhumobject = cJSON_GetObjectItem(root, "soil_humidity");
-    data->time = timestamp->valuedouble;
+    cJSON *object = cJSON_GetObjectItem(root,"params");
+    cJSON *TemObject = cJSON_GetObjectItem(object, "temperature");
+    cJSON *HumObject = cJSON_GetObjectItem(object, "humidity");
+    cJSON *LightObject = cJSON_GetObjectItem(object,"Light");
+    cJSON *Soilhumobject = cJSON_GetObjectItem(object, "SoilHumidity");
+    data->time = time(NULL);
     data->tem = TemObject->valuedouble;
     data->hum = HumObject->valuedouble;
     data->sohum = Soilhumobject->valuedouble;
