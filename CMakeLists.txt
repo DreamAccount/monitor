@@ -10,7 +10,7 @@ LINK_DIRECTORIES(/usr/lib /usr/local/lib lib)
 SET(mainsrc src/main.c src/database.c src/config.c src/network.c)
 SET(debugsrc src/test.c src/database.c src/config.c src/network.c)
 
-LINK_LIBRARIES(m pthread ev mysqlclient cjson paho-mqtt3c)
+LINK_LIBRARIES(m pthread mysqlclient cjson paho-mqtt3c)
 add_executable(monitor-debug ${debugsrc})
 add_executable(monitor-release ${mainsrc})
 

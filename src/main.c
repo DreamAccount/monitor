@@ -8,7 +8,6 @@
 #include "network.h"
 #include "config.h"
 #include "MQTTClient.h"
-#include <ev.h>
 
 int main(int argc, char **argv) {
     int rc, ch;
