@@ -11,6 +11,6 @@ SET(mainsrc src/main.c src/database.c src/config.c src/network.c)
 SET(debugsrc src/test.c src/database.c src/config.c src/network.c)
 
 LINK_LIBRARIES(m pthread ev mysqlclient cjson paho-mqtt3c)
-add_executable(debug ${debugsrc})
-add_executable(main ${mainsrc})
+add_executable(monitor-debug ${debugsrc})
+add_executable(monitor-release ${mainsrc})
 
